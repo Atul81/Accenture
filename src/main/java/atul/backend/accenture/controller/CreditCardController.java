@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 @RestController
-@RequestMapping(value = "/finflux")
+@RequestMapping(value = "/accenture")
 public class CreditCardController {
 
     private static final Logger log = Logger.getLogger("FnfluxController");
