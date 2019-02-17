@@ -8,10 +8,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 
 @Service
 public class CreditCardServiceImpl implements CreditCardService {
+
+
+    private static final Logger log = Logger.getLogger("CreditCardServiceImpl");
 
     @Autowired
     private CreditCardRepository creditCardRepository;
@@ -21,6 +25,26 @@ public class CreditCardServiceImpl implements CreditCardService {
         List<CreditCardEntity> list = new ArrayList<>();
         creditCardRepository.findAll().iterator().forEachRemaining(list::add);
         return list;
+    }
+
+    @Override
+    public Boolean deleteUser(Integer id) {
+        log.info(String.valueOf(creditCardRepository.findById(id).isPresent()));
+        CreditCardEntity creditCardEntity = creditCardRepository.findById(id).isPresent() ? creditCardRepository.findById(id).get() : null;
+        if (null != creditCardEntity) {
+            creditCardRepository.deleteById(id);
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public CreditCardEntity getCustomerById(Integer id) {
+        CreditCardEntity creditCardEntity = creditCardRepository.findById(id).isPresent() ? creditCardRepository.findById(id).get() : null;
+        if (null != creditCardEntity)
+            return creditCardEntity;
+        return null;
     }
 
 }

@@ -1,4 +1,4 @@
-package atul.backend.accenture;
+package atul.backend.accenture.config;
 
 import java.io.IOException;
 

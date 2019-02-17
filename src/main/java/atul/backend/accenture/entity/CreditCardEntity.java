@@ -6,7 +6,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "credit_card", schema = "creditrecord", catalog = "")
 public class CreditCardEntity {
-    private int id;
+    private Integer id;
     private String name;
     private String limBal;
     private String sex;
@@ -35,7 +35,7 @@ public class CreditCardEntity {
 
     @Id
     @Column(name = "ID")
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

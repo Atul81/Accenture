@@ -8,4 +8,8 @@ import java.util.List;
 public interface CreditCardService {
 
     List<CreditCardEntity> getAllCustomersList();
+
+    Boolean deleteUser(Integer id);
+
+    CreditCardEntity getCustomerById(Integer id);
 }
