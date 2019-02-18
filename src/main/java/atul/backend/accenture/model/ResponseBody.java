@@ -1,6 +1,7 @@
 package atul.backend.accenture.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class ResponseBody implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -9,6 +10,16 @@ public class ResponseBody implements Serializable {
     protected String status;
 
     protected String statusDesc;
+
+    public List<ErrorDetails> getErrorDetails() {
+        return errorDetails;
+    }
+
+    public void setErrorDetails(List<ErrorDetails> errorDetails) {
+        this.errorDetails = errorDetails;
+    }
+
+    private List<ErrorDetails> errorDetails;
 
     public String getStatus() {
         return status;
