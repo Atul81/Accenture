@@ -6,19 +6,19 @@ import java.util.Objects;
 @Entity
 @Table(name = "credit_card", schema = "creditrecord", catalog = "")
 public class CreditCardEntity {
-    private Integer id;
+    private int cardNum;
     private String name;
     private String limBal;
-    private String sex;
-    private String education;
-    private String marriage;
+    private Integer sex;
+    private Integer eduId;
+    private Integer marId;
     private Integer age;
-    private String pay0;
-    private String pay2;
-    private String pay3;
-    private String pay4;
-    private String pay5;
-    private String pay6;
+    private Integer pay0;
+    private Integer pay2;
+    private Integer pay3;
+    private Integer pay4;
+    private Integer pay5;
+    private Integer pay6;
     private Double billAmt1;
     private Double billAmt2;
     private Double billAmt3;
@@ -31,20 +31,20 @@ public class CreditCardEntity {
     private Double payAmt4;
     private Double payAmt5;
     private Double payAmt6;
-    private String payNxtMnth;
+    private Integer payNextMonth;
 
     @Id
-    @Column(name = "ID")
-    public Integer getId() {
-        return id;
+    @Column(name = "card_num", nullable = false)
+    public int getCardNum() {
+        return cardNum;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCardNum(int cardNum) {
+        this.cardNum = cardNum;
     }
 
     @Basic
-    @Column(name = "NAME")
+    @Column(name = "name", nullable = true, length = 255)
     public String getName() {
         return name;
     }
@@ -54,7 +54,7 @@ public class CreditCardEntity {
     }
 
     @Basic
-    @Column(name = "LIM_BAL")
+    @Column(name = "lim_bal", nullable = true, length = 255)
     public String getLimBal() {
         return limBal;
     }
@@ -64,37 +64,37 @@ public class CreditCardEntity {
     }
 
     @Basic
-    @Column(name = "SEX")
-    public String getSex() {
+    @Column(name = "sex", nullable = true)
+    public Integer getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 
     @Basic
-    @Column(name = "EDUCATION")
-    public String getEducation() {
-        return education;
+    @Column(name = "eduId", nullable = true)
+    public Integer getEduId() {
+        return eduId;
     }
 
-    public void setEducation(String education) {
-        this.education = education;
-    }
-
-    @Basic
-    @Column(name = "MARRIAGE")
-    public String getMarriage() {
-        return marriage;
-    }
-
-    public void setMarriage(String marriage) {
-        this.marriage = marriage;
+    public void setEduId(Integer eduId) {
+        this.eduId = eduId;
     }
 
     @Basic
-    @Column(name = "AGE")
+    @Column(name = "marId", nullable = true)
+    public Integer getMarId() {
+        return marId;
+    }
+
+    public void setMarId(Integer marId) {
+        this.marId = marId;
+    }
+
+    @Basic
+    @Column(name = "age", nullable = true)
     public Integer getAge() {
         return age;
     }
@@ -104,67 +104,67 @@ public class CreditCardEntity {
     }
 
     @Basic
-    @Column(name = "PAY_0")
-    public String getPay0() {
+    @Column(name = "pay_0", nullable = true)
+    public Integer getPay0() {
         return pay0;
     }
 
-    public void setPay0(String pay0) {
+    public void setPay0(Integer pay0) {
         this.pay0 = pay0;
     }
 
     @Basic
-    @Column(name = "PAY_2")
-    public String getPay2() {
+    @Column(name = "pay_2", nullable = true)
+    public Integer getPay2() {
         return pay2;
     }
 
-    public void setPay2(String pay2) {
+    public void setPay2(Integer pay2) {
         this.pay2 = pay2;
     }
 
     @Basic
-    @Column(name = "PAY_3")
-    public String getPay3() {
+    @Column(name = "pay_3", nullable = true)
+    public Integer getPay3() {
         return pay3;
     }
 
-    public void setPay3(String pay3) {
+    public void setPay3(Integer pay3) {
         this.pay3 = pay3;
     }
 
     @Basic
-    @Column(name = "PAY_4")
-    public String getPay4() {
+    @Column(name = "pay_4", nullable = true)
+    public Integer getPay4() {
         return pay4;
     }
 
-    public void setPay4(String pay4) {
+    public void setPay4(Integer pay4) {
         this.pay4 = pay4;
     }
 
     @Basic
-    @Column(name = "PAY_5")
-    public String getPay5() {
+    @Column(name = "pay_5", nullable = true)
+    public Integer getPay5() {
         return pay5;
     }
 
-    public void setPay5(String pay5) {
+    public void setPay5(Integer pay5) {
         this.pay5 = pay5;
     }
 
     @Basic
-    @Column(name = "PAY_6")
-    public String getPay6() {
+    @Column(name = "pay_6", nullable = true)
+    public Integer getPay6() {
         return pay6;
     }
 
-    public void setPay6(String pay6) {
+    public void setPay6(Integer pay6) {
         this.pay6 = pay6;
     }
 
     @Basic
-    @Column(name = "BILL_AMT1")
+    @Column(name = "bill_amt1", nullable = true, precision = 0)
     public Double getBillAmt1() {
         return billAmt1;
     }
@@ -174,7 +174,7 @@ public class CreditCardEntity {
     }
 
     @Basic
-    @Column(name = "BILL_AMT2")
+    @Column(name = "bill_amt2", nullable = true, precision = 0)
     public Double getBillAmt2() {
         return billAmt2;
     }
@@ -184,7 +184,7 @@ public class CreditCardEntity {
     }
 
     @Basic
-    @Column(name = "BILL_AMT3")
+    @Column(name = "bill_amt3", nullable = true, precision = 0)
     public Double getBillAmt3() {
         return billAmt3;
     }
@@ -194,7 +194,7 @@ public class CreditCardEntity {
     }
 
     @Basic
-    @Column(name = "BILL_AMT4")
+    @Column(name = "bill_amt4", nullable = true, precision = 0)
     public Double getBillAmt4() {
         return billAmt4;
     }
@@ -204,7 +204,7 @@ public class CreditCardEntity {
     }
 
     @Basic
-    @Column(name = "BILL_AMT5")
+    @Column(name = "bill_amt5", nullable = true, precision = 0)
     public Double getBillAmt5() {
         return billAmt5;
     }
@@ -214,7 +214,7 @@ public class CreditCardEntity {
     }
 
     @Basic
-    @Column(name = "BILL_AMT6")
+    @Column(name = "bill_amt6", nullable = true, precision = 0)
     public Double getBillAmt6() {
         return billAmt6;
     }
@@ -224,7 +224,7 @@ public class CreditCardEntity {
     }
 
     @Basic
-    @Column(name = "PAY_AMT1")
+    @Column(name = "pay_amt1", nullable = true, precision = 0)
     public Double getPayAmt1() {
         return payAmt1;
     }
@@ -234,7 +234,7 @@ public class CreditCardEntity {
     }
 
     @Basic
-    @Column(name = "PAY_AMT2")
+    @Column(name = "pay_amt2", nullable = true, precision = 0)
     public Double getPayAmt2() {
         return payAmt2;
     }
@@ -244,7 +244,7 @@ public class CreditCardEntity {
     }
 
     @Basic
-    @Column(name = "PAY_AMT3")
+    @Column(name = "pay_amt3", nullable = true, precision = 0)
     public Double getPayAmt3() {
         return payAmt3;
     }
@@ -254,7 +254,7 @@ public class CreditCardEntity {
     }
 
     @Basic
-    @Column(name = "PAY_AMT4")
+    @Column(name = "pay_amt4", nullable = true, precision = 0)
     public Double getPayAmt4() {
         return payAmt4;
     }
@@ -264,7 +264,7 @@ public class CreditCardEntity {
     }
 
     @Basic
-    @Column(name = "PAY_AMT5")
+    @Column(name = "pay_amt5", nullable = true, precision = 0)
     public Double getPayAmt5() {
         return payAmt5;
     }
@@ -274,7 +274,7 @@ public class CreditCardEntity {
     }
 
     @Basic
-    @Column(name = "PAY_AMT6")
+    @Column(name = "pay_amt6", nullable = true, precision = 0)
     public Double getPayAmt6() {
         return payAmt6;
     }
@@ -284,13 +284,13 @@ public class CreditCardEntity {
     }
 
     @Basic
-    @Column(name = "PAY_NXT_MNTH")
-    public String getPayNxtMnth() {
-        return payNxtMnth;
+    @Column(name = "pay_next_month", nullable = true)
+    public Integer getPayNextMonth() {
+        return payNextMonth;
     }
 
-    public void setPayNxtMnth(String payNxtMnth) {
-        this.payNxtMnth = payNxtMnth;
+    public void setPayNextMonth(Integer payNextMonth) {
+        this.payNextMonth = payNextMonth;
     }
 
     @Override
@@ -298,12 +298,12 @@ public class CreditCardEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CreditCardEntity that = (CreditCardEntity) o;
-        return id == that.id &&
+        return cardNum == that.cardNum &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(limBal, that.limBal) &&
                 Objects.equals(sex, that.sex) &&
-                Objects.equals(education, that.education) &&
-                Objects.equals(marriage, that.marriage) &&
+                Objects.equals(eduId, that.eduId) &&
+                Objects.equals(marId, that.marId) &&
                 Objects.equals(age, that.age) &&
                 Objects.equals(pay0, that.pay0) &&
                 Objects.equals(pay2, that.pay2) &&
@@ -323,11 +323,11 @@ public class CreditCardEntity {
                 Objects.equals(payAmt4, that.payAmt4) &&
                 Objects.equals(payAmt5, that.payAmt5) &&
                 Objects.equals(payAmt6, that.payAmt6) &&
-                Objects.equals(payNxtMnth, that.payNxtMnth);
+                Objects.equals(payNextMonth, that.payNextMonth);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, limBal, sex, education, marriage, age, pay0, pay2, pay3, pay4, pay5, pay6, billAmt1, billAmt2, billAmt3, billAmt4, billAmt5, billAmt6, payAmt1, payAmt2, payAmt3, payAmt4, payAmt5, payAmt6, payNxtMnth);
+        return Objects.hash(cardNum, name, limBal, sex, eduId, marId, age, pay0, pay2, pay3, pay4, pay5, pay6, billAmt1, billAmt2, billAmt3, billAmt4, billAmt5, billAmt6, payAmt1, payAmt2, payAmt3, payAmt4, payAmt5, payAmt6, payNextMonth);
     }
 }
